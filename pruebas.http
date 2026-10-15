@@ -1,0 +1,38 @@
+### Crear (201)
+POST http://localhost:8080/productos
+Content-Type: application/json
+
+{"nombre":"Teclado","precio":80000}
+
+### Listar (200)
+GET http://localhost:8080/productos
+
+### Consultar por ID (200; usa el ID devuelto al crear)
+GET http://localhost:8080/productos/1
+
+### Actualizar ambos campos (200)
+PUT http://localhost:8080/productos/1
+Content-Type: application/json
+
+{"nombre":"Teclado mecanico","precio":95000}
+
+### Precio cero debe guardarse (200)
+PUT http://localhost:8080/productos/1
+Content-Type: application/json
+
+{"nombre":"Teclado en promocion","precio":0}
+
+### Validacion: falta precio (400)
+POST http://localhost:8080/productos
+Content-Type: application/json
+
+{"nombre":"Mouse"}
+
+### ID invalido (400)
+GET http://localhost:8080/productos/abc
+
+### Eliminar (204, sin cuerpo)
+DELETE http://localhost:8080/productos/1
+
+### Despues de eliminar (404)
+GET http://localhost:8080/productos/1
